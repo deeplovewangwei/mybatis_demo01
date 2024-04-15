@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<properties resource="jdbc.properties"/>
+    <typeAliases>
+<!--        <typeAlias type="com.bdqn.ww.mybatis.pojo.Students"/>;-->
+        <package name="com.bdqn.ww.mybatis.pojo"/>
+            </typeAliases>
+<!--    环境-->
+    <environments default="development">
+        <!--    环境标识-->
+        <environment id="development">
+            <!--    事务管理器 事务不会自动提交-->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+<!--        <mapper resource="mappers/StudentsMapper.xml"/>-->
+<!--        包的路径要和接口的路径一模一样-->
+<package name="com.bdqn.ww.mybatis.mapper"/>
+    </mappers>
+</configuration>
